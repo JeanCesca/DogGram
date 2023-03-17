@@ -52,6 +52,5 @@ struct ProfileView_Previews: PreviewProvider {
                     .preferredColorScheme(color)
             }
         }
-
     }
 }

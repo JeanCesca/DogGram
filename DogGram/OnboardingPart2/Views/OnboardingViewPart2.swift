@@ -9,12 +9,10 @@ import SwiftUI
 
 struct OnboardingViewPart2: View {
     
-    @State var displayName: String = ""
+    @StateObject var vm: OnboardingViewModelPart2
     
-    @State var showImagePicker: Bool = false
-    @State var selectedImage: UIImage = UIImage(named: "logo")!
-    @State var sourceType: UIImagePickerController.SourceType = .photoLibrary
-    
+//    var user: User
+
     var body: some View {
         VStack(alignment: .center, spacing: 20) {
             
@@ -28,7 +26,7 @@ struct OnboardingViewPart2: View {
                 .fontWeight(.bold)
                 .foregroundColor(.MyTheme.purpleColor)
             
-            TextField("🐾  Add your dog name here...", text: $displayName)
+            TextField("🐾  Add your dog name here...", text: $vm.displayName)
                 .padding()
                 .frame(maxWidth: .infinity)
                 .tint(.red)
@@ -41,7 +39,7 @@ struct OnboardingViewPart2: View {
                 .padding(.horizontal)
             
             Button {
-                showImagePicker.toggle()
+                vm.showImagePicker.toggle()
             } label: {
                 Text("Finish: Add profile picture")
                     .font(.headline)
@@ -55,26 +53,26 @@ struct OnboardingViewPart2: View {
                     .cornerRadius(15)
                     .padding(.horizontal)
             }
-            .opacity(displayName != "" ? 1.0 : 0.0)
+            .opacity(vm.displayName != "" ? 1.0 : 0.0)
             .animation(.easeOut(duration: 1.0))
-            .sheet(isPresented: $showImagePicker, onDismiss: createProfile) {
-                ImagePicker(imageSelected: $selectedImage, sourceType: $sourceType)
+            .sheet(isPresented: $vm.showImagePicker, onDismiss: vm.createProfile) {
+                ImagePicker(imageSelected: $vm.selectedImage, sourceType: $vm.sourceType)
             }
         }
         .tint(.MyTheme.yellowColor)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .edgesIgnoringSafeArea(.all)
     }
-    
-    public func createProfile() {
-        print("Create profile now")
-    }
 }
 
 struct OnboardingViewPart2_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) { color in
-            OnboardingViewPart2()
+            OnboardingViewPart2(vm: OnboardingViewModelPart2(
+                displayName: "Bolinho",
+                email: "bolinho@gmail.com",
+                providerId: "Id8392",
+                provider: "89034"))
                 .preferredColorScheme(color)
         }
     }

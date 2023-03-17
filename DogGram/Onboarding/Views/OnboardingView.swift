@@ -6,13 +6,14 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct OnboardingView: View {
     
     @Environment(\.dismiss) var dismiss
     
-    @State var showOnboardingPart2: Bool = false
-    
+    @StateObject var vm: OnboardingViewModel
+        
     var body: some View {
         ZStack {
             VStack(alignment: .center, spacing: 10) {
@@ -28,7 +29,7 @@ struct OnboardingView: View {
                     .fontWeight(.bold)
                     .foregroundColor(.primary)
                 
-                Text("DogGram is the #1 app for posting pictures of your dog and sharing them across the world. We are a log-loving community and we're happy to have you.\n⭐️⭐️⭐️⭐️⭐️\n")
+                Text("DogGram is the #1 app for posting pictures of your dog and sharing them across the world. We are a log-loving community and we're happy to have you.\n\n⭐️⭐️⭐️⭐️⭐️\n")
                     .font(.headline)
                     .fontWeight(.medium)
                     .multilineTextAlignment(.center)
@@ -37,7 +38,7 @@ struct OnboardingView: View {
                 
                 VStack(alignment: .center, spacing: 10) {
                     Button {
-                        showOnboardingPart2.toggle()
+//                        showOnboardingPart2.toggle()
                     } label: {
                         SignInWithAppleButton()
                     }
@@ -50,7 +51,7 @@ struct OnboardingView: View {
                     .cornerRadius(15)
                     
                     Button {
-                        showOnboardingPart2.toggle()
+                        vm.signUpWithGoogle()
                     } label: {
                         HStack {
                             Image(systemName: "globe")
@@ -80,8 +81,15 @@ struct OnboardingView: View {
             }
             .padding(.all, 20)
             .frame(maxWidth: .infinity)
-            .fullScreenCover(isPresented: $showOnboardingPart2) {
-                OnboardingViewPart2()
+            .fullScreenCover(isPresented: $vm.showOnboardingPart2) {
+                OnboardingViewPart2(vm: OnboardingViewModelPart2(
+                    displayName: vm.displayName,
+                    email: vm.email,
+                    providerId: vm.providerId,
+                    provider: vm.provider))
+            }
+            .alert("Erro", isPresented: $vm.showError) {
+                Text("Error")
             }
         }
         .edgesIgnoringSafeArea(.all)
@@ -91,7 +99,7 @@ struct OnboardingView: View {
 struct OnboardingView_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) { color in
-            OnboardingView()
+            OnboardingView(vm: OnboardingViewModel())
                 .preferredColorScheme(color)
         }
     }

@@ -56,7 +56,7 @@ struct SignUpView: View {
         }
         .edgesIgnoringSafeArea(.top)
         .fullScreenCover(isPresented: $showOnboarding) {
-            OnboardingView()
+            OnboardingView(vm: OnboardingViewModel())
         }
     }
 }
