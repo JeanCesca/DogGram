@@ -71,7 +71,7 @@ class AuthService: AuthServiceProtocol {
             let userId = document.documentID
             
             //upload profile image to Storage
-            
+            ImageManager.shared.uploadProfileImage(userId: userId, image: profileImage)
             
             //upload profile data to Firestore
             let userData: [String: Any] = [

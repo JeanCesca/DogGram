@@ -46,6 +46,7 @@
 		0FDB403D29C4ED9F008E39C6 /* OnboardingViewModelPart2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB403C29C4ED9F008E39C6 /* OnboardingViewModelPart2.swift */; };
 		0FDB404129C4FAD3008E39C6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB404029C4FAD3008E39C6 /* User.swift */; };
 		0FDB404329C50222008E39C6 /* Enums&Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB404229C50222008E39C6 /* Enums&Structs.swift */; };
+		0FDB404629CB646E008E39C6 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB404529CB646E008E39C6 /* ImageManager.swift */; };
 		0FEBA99029C0E79400706660 /* DogGramApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEBA98F29C0E79400706660 /* DogGramApp.swift */; };
 		0FEBA99229C0E79400706660 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEBA99129C0E79400706660 /* MainTabView.swift */; };
 		0FEBA99429C0E79600706660 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FEBA99329C0E79600706660 /* Assets.xcassets */; };
@@ -89,6 +90,7 @@
 		0FDB403C29C4ED9F008E39C6 /* OnboardingViewModelPart2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModelPart2.swift; sourceTree = "<group>"; };
 		0FDB404029C4FAD3008E39C6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0FDB404229C50222008E39C6 /* Enums&Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enums&Structs.swift"; sourceTree = "<group>"; };
+		0FDB404529CB646E008E39C6 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		0FEBA98C29C0E79400706660 /* DogGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DogGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FEBA98F29C0E79400706660 /* DogGramApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogGramApp.swift; sourceTree = "<group>"; };
 		0FEBA99129C0E79400706660 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
@@ -370,6 +372,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		0FDB404429CB644E008E39C6 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				0FDB404529CB646E008E39C6 /* ImageManager.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		0FEBA98329C0E79400706660 = {
 			isa = PBXGroup;
 			children = (
@@ -389,6 +399,7 @@
 		0FEBA98E29C0E79400706660 /* DogGram */ = {
 			isa = PBXGroup;
 			children = (
+				0FDB404429CB644E008E39C6 /* Utilities */,
 				0FDB402D29C4AD44008E39C6 /* Services */,
 				0FBE36CC29C39FB900BE82D4 /* Info.plist */,
 				0FBE36B029C22C4D00BE82D4 /* Onboarding */,
@@ -624,6 +635,7 @@
 				0FDB404329C50222008E39C6 /* Enums&Structs.swift in Sources */,
 				0FEBA9AA29C0EF8300706660 /* FeedView.swift in Sources */,
 				0FEBA9AF29C0F4A900706660 /* PostModel.swift in Sources */,
+				0FDB404629CB646E008E39C6 /* ImageManager.swift in Sources */,
 				0FBE369229C13B6800BE82D4 /* PostImageView.swift in Sources */,
 				0FBE36A329C1F16100BE82D4 /* SettingsLabelView.swift in Sources */,
 				0FEBA99229C0E79400706660 /* MainTabView.swift in Sources */,
